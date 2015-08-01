@@ -123,3 +123,28 @@ if var name = optionalName {    // 也可以用 var，可以 re-assign
 print(greeting)
 
 */
+
+/*
+let vegetable = "red pepper"
+
+var vegetableComment = "Everything tastes good in soup."
+
+switch vegetable {
+    
+case "celery":                          // 一般的比對
+    vegetableComment = "Add some raisins and make ants on a log."
+    
+case "cucumber", "watercress":          // 符合多種條件
+    vegetableComment = "That would make a good tea sandwich."
+    
+case let x where x.hasSuffix("pepper"): // 經過運算符合條件
+    vegetableComment = "Is it a spicy \(x)?"
+    
+default:
+    break   // 不做任何事，要用 break
+    
+}
+
+print(vegetableComment)
+
+*/
