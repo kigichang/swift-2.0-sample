@@ -78,6 +78,8 @@ let emptyDictionary2 = [:]              // 不指定資料型別
 
 // MARK: Session 1.5 Control Flow
 /*
+// if
+
 let score = 30
 
 var teamScore = 0
@@ -96,6 +98,8 @@ print(teamScore)
 */
 
 /*
+// Optional
+
 var optionalString: String? = "Hello"
 
 print(optionalString)
@@ -125,6 +129,8 @@ print(greeting)
 */
 
 /*
+//switch - case
+
 let vegetable = "red pepper"
 
 var vegetableComment = "Everything tastes good in soup."
@@ -147,4 +153,72 @@ default:
 
 print(vegetableComment)
 
+*/
+
+/*
+// Range
+
+print(1...10)
+print(1..<20)
+*/
+
+/*
+// for - in
+
+for i in 1...10 {
+    print(i)
+}
+
+for i in 1..<10 {
+    print(i)
+}
+
+for var i = 0; i < 10; i++ {
+    print(i)
+}
+
+let shoppingList = ["catfish", "water", "tulips", "blue paint"]
+
+for item in shoppingList {
+    print(item)
+}
+
+
+let interestingNumbers = [
+    "Prime": [2, 3, 5, 7, 11, 13],
+    "Fibonacci": [1, 1, 2, 3, 5, 8],
+    "Square": [1, 4, 9, 16, 25]
+]
+
+var largest = 0
+
+for (kind, numbers) in interestingNumbers {
+    for number in numbers {
+        if number > largest {
+            largest = number
+        }
+    }
+}
+
+print(largest)
+*/
+
+/*
+// while and repeat - while
+
+var n = 2
+
+while n < 100 {
+    n *= 2
+}
+
+print(n)
+
+var m = 2
+
+repeat {
+    m *= 2
+} while m < 100
+
+print(m)
 */
