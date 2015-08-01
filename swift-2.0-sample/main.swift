@@ -222,3 +222,19 @@ repeat {
 
 print(m)
 */
+
+// MARK: Function and Closure
+
+func greet(name: String, day: String) -> String {
+    return "Hello \(name), today is \(day)."
+}
+
+print(greet("Bob", day: "Tuesday"))
+
+
+
+func total(amount: Int,times: Int, a: Int) -> Int {
+    return amount * times * a
+}
+
+print(total(30, times: 20, a: 30))

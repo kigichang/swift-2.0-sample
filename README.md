@@ -6,6 +6,8 @@ Sample from [The Swift Programming Language - Swift 2 Prerelease](https://itunes
 
 ## A Swift Tour
 
+本章節，只簡介整個 Swift 程式語言特性。各別詳細的說明與討論，請見後讀的章節。
+
 * 主程式
 * 變數宣告
 * Strong Type and String Interpolation
@@ -17,3 +19,4 @@ Sample from [The Swift Programming Language - Swift 2 Prerelease](https://itunes
     * Range
     * for - in
     * while and repeat - while
+* Function and Closure
