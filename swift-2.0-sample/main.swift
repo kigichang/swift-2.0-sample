@@ -50,7 +50,7 @@ print(fruitSummary)
 */
 
 // MARK: Session 1.4 Array and Dictionary
-
+/*
 var shoppingList = ["catfish", "water", "tulips", "blue paint"]
 print(shoppingList[0])
 
@@ -74,3 +74,52 @@ print(occupations["Jayne"])
 
 let emptyDictionary = [String: Float]() // 指定資料型別
 let emptyDictionary2 = [:]              // 不指定資料型別
+*/
+
+// MARK: Session 1.5 Control Flow
+/*
+let score = 30
+
+var teamScore = 0
+
+if score >= 50 {
+    teamScore += 3
+}
+else if score >= 30 {
+    teamScore += 2
+}
+else {
+    teamScore += 1
+}
+
+print(teamScore)
+*/
+
+/*
+var optionalString: String? = "Hello"
+
+print(optionalString)
+
+print(optionalString == nil)
+
+var optionalName: String? = "John Appleseed"
+
+var greeting = "Hello!"
+
+if let name = optionalName {
+    greeting = "Hello, \(name)"
+}
+
+print(greeting)
+
+greeting = "Hello!"
+optionalName = nil
+
+if var name = optionalName {    // 也可以用 var，可以 re-assign
+    greeting = "Hello, \(name)"
+    name = "test var"
+}
+
+print(greeting)
+
+*/
