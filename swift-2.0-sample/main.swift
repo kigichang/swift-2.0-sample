@@ -263,3 +263,17 @@ let result = calc([5, 3, 100, 3, 9])
 
 print(result.3)     // by 0-index
 print(result.avg)   // by name
+
+func sumOf(numbers: Int...) -> Int {
+    
+    var sum = 0
+    
+    for number in numbers {
+        sum += number
+    }
+    
+    return sum
+}
+
+print(sumOf())
+print(sumOf(42, 597, 12))
