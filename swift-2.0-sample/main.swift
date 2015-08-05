@@ -238,3 +238,28 @@ func total(amount: Int,times: Int, a: Int) -> Int {
 }
 
 print(total(30, times: 20, a: 30))
+
+func calc(scores: [Int]) -> (min: Int, max: Int, sum: Int, avg: Double) {
+    
+    var min = scores[0]
+    var max = scores[0]
+    var sum = 0
+    
+    
+    for score in scores {
+        if score > max {
+            max = score
+        } else if score < min {
+            min = score
+        }
+        
+        sum += score
+    }
+    
+    return (min, max, sum, Double(sum) / Double(scores.count))
+}
+
+let result = calc([5, 3, 100, 3, 9])
+
+print(result.3)     // by 0-index
+print(result.avg)   // by name
