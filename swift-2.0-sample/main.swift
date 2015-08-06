@@ -224,7 +224,8 @@ print(m)
 */
 
 // MARK: Function and Closure
-
+/*
+// Function and Named Argument
 func greet(name: String, day: String) -> String {
     return "Hello \(name), today is \(day)."
 }
@@ -238,7 +239,10 @@ func total(amount: Int,times: Int, a: Int) -> Int {
 }
 
 print(total(30, times: 20, a: 30))
+*/
 
+/*
+// Tuple
 func calc(scores: [Int]) -> (min: Int, max: Int, sum: Int, avg: Double) {
     
     var min = scores[0]
@@ -263,7 +267,10 @@ let result = calc([5, 3, 100, 3, 9])
 
 print(result.3)     // by 0-index
 print(result.avg)   // by name
+*/
 
+/*
+// Variable number of arguments
 func sumOf(numbers: Int...) -> Int {
     
     var sum = 0
@@ -277,3 +284,78 @@ func sumOf(numbers: Int...) -> Int {
 
 print(sumOf())
 print(sumOf(42, 597, 12))
+*/
+
+/*
+// Nested Function
+func returnFifteen() -> Int {
+    
+    var y = 10
+    
+    func add() {
+        y += 5
+    }
+    
+    add()
+    
+    return y
+}
+
+print(returnFifteen())
+
+*/
+
+/*
+// First-Class Type
+func makeIncrementer() -> (Int -> Int) {
+    
+    func addOne(number: Int) -> Int {
+        return 1 + number
+    }
+    
+    return addOne
+}
+
+var increment = makeIncrementer()
+
+print(increment)
+print(increment(7))
+
+func hasAnyMatches(list: [Int], condition: Int -> Bool) -> Bool {
+    for item in list {
+        if condition(item) {
+            return true
+        }
+    }
+    
+    return false
+}
+
+func lessThenTen(number: Int) -> Bool {
+    return number < 10
+}
+
+let numbers = [20, 19, 7, 12]
+print(hasAnyMatches(numbers, condition: lessThenTen))
+
+let newNumbers = numbers.map({
+    (number: Int) -> Int in
+    let result = 3 * number
+    return result
+})
+
+let mappedNumbers = numbers.map { number in 3 * number } // 小括號可以省略
+
+print(numbers)
+print(newNumbers)
+print(mappedNumbers)
+
+let sortedNumbers = numbers.sort { $0 > $1 } // 變數編號 0-index
+
+print(sortedNumbers)
+
+let sortedNumbers2 = numbers.sort( > )      // 最簡化寫法
+
+print(sortedNumbers2)
+
+*/
