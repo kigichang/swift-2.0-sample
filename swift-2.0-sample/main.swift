@@ -24,7 +24,7 @@ shape.numberOfSides = 7
 print(shape.simpleDescription())
 */
 
-
+/*
 class NamedShape {
     
     var numberOfSides: Int = 0
@@ -44,7 +44,7 @@ class NamedShape {
     }
     
 }
-
+*/
 /*
 // init and deinit test
 func test() {
@@ -60,7 +60,7 @@ func test() {
 test()
 */
 
-
+/*
 // inheritance and polymorphism
 class Square: NamedShape {
     var sideLength: Double
@@ -86,7 +86,9 @@ class Square: NamedShape {
 let testSqaure = Square(sideLength: 5.2, name: "my test square")
 print(testSqaure.area())
 print(testSqaure.simpleDescription())
+*/
 
+/*
 // getter and setter
 class EquilateralTriangle: NamedShape {
     
@@ -119,9 +121,10 @@ let triangle = EquilateralTriangle(sideLength: 3.1, name: "a triangle")
 print(triangle.perimeter)
 triangle.perimeter = 9.9
 print(triangle.perimeter)
+*/
 
+/*
 // Property Observers
-
 class TriangleAndSquare {
     var triangle: EquilateralTriangle {
         
@@ -163,3 +166,178 @@ print("start set square")
 triangleAndSquare.square = Square(sideLength: 50.0, name: "larger square")
 print("end set square")
 print(triangleAndSquare.triangle.sideLength)
+*/
+
+// MARK: Enumeration
+/*
+enum Rank: Int {
+    case Ace = 1
+    
+    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
+    
+    case Jack, Queen, King
+    
+    func simpleDescription() -> String {
+        switch self {
+        case .Ace:
+            return "ace"
+        case .Jack:
+            return "jack"
+        case .Queen:
+            return "queen"
+        case .King:
+            return "king"
+        default:
+            return String(self.rawValue)
+        }
+    }
+}
+
+let jack = Rank.Jack
+print(jack.rawValue)
+
+func RankFromRaw(raw: Int) {
+    if let rank = Rank(rawValue: raw) {
+        print(rank.simpleDescription())
+    }
+    else {
+        print("not Match")
+    }
+}
+
+RankFromRaw(1)
+RankFromRaw(14)
+
+enum Suit {
+    
+    case Spades, Hearts, Diamonds, Clubs
+    
+    func simpleDescription() -> String {
+        switch self {
+        case .Spades:
+            return "spades"
+            
+        case .Hearts:
+            return "hearts"
+            
+        case .Diamonds:
+            return "diamonds"
+            
+        case .Clubs:
+            return "clubs"
+        }
+    }
+    
+    func color() -> String {
+        switch self {
+        case .Spades, .Clubs:
+            return "black"
+        case .Hearts, .Diamonds:
+            return "red"
+        }
+    }
+}
+
+enum ServerResponse {
+    case Result(String, String)
+    case Error(String)
+}
+
+let success = ServerResponse.Result("6:00 AM", "8:09 PM")
+let failure = ServerResponse.Error("Out of cheese.")
+
+switch success {
+    
+case let .Result(sunrise, sunset):
+    print("Sunrise is at \(sunrise) and sunset is at \(sunset)")
+    
+case let .Error(error):
+    print("Failure...\(error)")
+    
+}
+
+// MARK: Structure
+
+struct Card {
+    let rank: Rank
+    let suit: Suit
+    
+    func simpleDescription() -> String {
+        return "The \(rank.simpleDescription()) of \(suit.color()) \(suit.simpleDescription())"
+    }
+}
+
+let treeOfSpades = Card(rank: .Three, suit: .Spades)
+
+print(treeOfSpades.simpleDescription())
+*/
+
+// MARK: Protocol
+
+protocol ExampleProtocol {
+    var simpleDescription: String { get }
+    
+    mutating func adjust()
+}
+
+class SimpleClass: ExampleProtocol {
+    var simpleDescription = "A very simple class."
+    
+    var anotherProperty: Int = 69105
+    
+    func adjust() {
+        simpleDescription += " Now 100% adjusted"
+    }
+}
+
+let a = SimpleClass()
+a.adjust()
+print(a.simpleDescription)
+
+struct SimpleStructure: ExampleProtocol {
+    
+    var simpleDescription = "A very simple structure."
+    
+    mutating func adjust() {
+        simpleDescription += " (adjusted)"
+    }
+}
+
+var b = SimpleStructure()
+b.adjust()
+print(b.simpleDescription)
+
+// MARK: Extension
+
+extension Double {
+    func abs() -> Double {
+        if self < 0 {
+            return -self
+        }
+        else {
+            return self
+        }
+    }
+}
+
+let testDouble = -10.0
+print(testDouble)
+print(testDouble.abs())
+
+extension Int: ExampleProtocol {
+    
+    var simpleDescription: String {
+        return "The number \(self)"
+    }
+    
+    mutating func adjust() {
+        self += 42
+    }
+}
+
+var seven: Int = 7
+
+print(seven.simpleDescription)
+seven.adjust()
+print(seven.simpleDescription)
+
