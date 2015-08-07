@@ -60,7 +60,7 @@ func test() {
 test()
 */
 
-/*
+
 // inheritance and polymorphism
 class Square: NamedShape {
     var sideLength: Double
@@ -86,9 +86,6 @@ class Square: NamedShape {
 let testSqaure = Square(sideLength: 5.2, name: "my test square")
 print(testSqaure.area())
 print(testSqaure.simpleDescription())
-
-*/
-
 
 // getter and setter
 class EquilateralTriangle: NamedShape {
@@ -122,3 +119,47 @@ let triangle = EquilateralTriangle(sideLength: 3.1, name: "a triangle")
 print(triangle.perimeter)
 triangle.perimeter = 9.9
 print(triangle.perimeter)
+
+// Property Observers
+
+class TriangleAndSquare {
+    var triangle: EquilateralTriangle {
+        
+        willSet {
+            print("triangle willSet \(newValue.sideLength)")
+            square.sideLength = newValue.sideLength
+        }
+        
+        didSet {
+            print("triangle didSet \(oldValue.sideLength)")
+        }
+    }
+    
+    var square: Square {
+        
+        willSet {
+            print("square willSet \(newValue.sideLength)")
+            triangle.sideLength = newValue.sideLength
+        }
+        
+        didSet {
+            print("square didSet \(oldValue.sideLength)")
+        }
+    }
+    
+    init(size: Double, name: String) {
+        square = Square(sideLength: size, name: name)
+        triangle = EquilateralTriangle(sideLength: size, name: name)
+    }
+    
+}
+
+let triangleAndSquare = TriangleAndSquare(size: 10.0, name: "another test shape")
+
+print(triangleAndSquare.square.sideLength)
+print(triangleAndSquare.triangle.sideLength)
+
+print("start set square")
+triangleAndSquare.square = Square(sideLength: 50.0, name: "larger square")
+print("end set square")
+print(triangleAndSquare.triangle.sideLength)
