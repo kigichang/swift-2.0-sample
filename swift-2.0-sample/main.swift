@@ -274,6 +274,7 @@ print(treeOfSpades.simpleDescription())
 
 // MARK: Protocol
 
+/*
 protocol ExampleProtocol {
     var simpleDescription: String { get }
     
@@ -341,3 +342,53 @@ print(seven.simpleDescription)
 seven.adjust()
 print(seven.simpleDescription)
 
+*/
+
+// MARK: Generic
+
+func repeatInt(item: Int, numberOfTimes: Int) ->[Int] {
+    var result = [Int]()
+    
+    for _ in 0..<numberOfTimes {
+        result.append(item)
+    }
+    
+    return result
+}
+
+func repeatDouble(item: Double, numberOfTimes: Int) ->[Double] {
+    var result = [Double]()
+    
+    for _ in 0..<numberOfTimes {
+        result.append(item)
+    }
+    
+    return result
+}
+
+func repeatItem<T>(item: T, numberOfTimes: Int) ->[T] {
+    var result = [T]()
+    
+    for _ in 0..<numberOfTimes {
+        result.append(item)
+    }
+    
+    return result
+}
+
+print(repeatItem(10, numberOfTimes: 4))
+
+func anyCommonElements<T, U where T: SequenceType, U: SequenceType, T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, _ rhs: U) -> Bool {
+    
+    for lhsItem in lhs {
+        for rhsItem in rhs {
+            if lhsItem == rhsItem {
+                return true
+            }
+        }
+    }
+    
+    return false
+}
+
+print(anyCommonElements([1, 2, 3,], [3]))
