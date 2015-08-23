@@ -8,36 +8,10 @@
 
 import Foundation
 
-// MARK: Session 0
-print("Hello, World!")
+// MARK: Type Alias
 
-// MARK: Session 1
+typealias AudioSample = UInt16
 
+var maxAmplitudeFound = AudioSample.min
 
-// MARK: Session 2
-
-
-// MARK: Session 3
-
-
-// MARK: Session 4
-
-
-// MARK: Session 5
-
-
-// MARK: Session 6
-
-
-// MARK: Session 7
-
-
-// MARK: Session 8
-
-
-// MARK: Session 9
-
-
-// MARK: Session 10
-
-
+print("maxAmplitudeFound = \(maxAmplitudeFound)")
