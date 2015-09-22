@@ -8,29 +8,31 @@
 
 import Foundation
 
-/*
-// MARK: Type Alias
+// MARK: Immutable and Mutable
 
-typealias AudioSample = UInt16
+var array1 = [1, 2, 3, 4, 5]
 
-var maxAmplitudeFound = AudioSample.min
+print("before append: \(array1)")
+array1.append(6)
+print("after append: \(array1)")
 
-print("maxAmplitudeFound = \(maxAmplitudeFound)")
-*/
+array1[0] = 100
+print("after change 0-index: \(array1)")
 
-// MARK: Tuple
+let array2 = [1, 2, 3, 4, 5]
 
-let http404Error = (404, "Not Found")
+//array2.append(1000)
 
-let (statusCode, statusMessage) = http404Error
+//array2[0] = 100000
 
-print("statusCode = \(statusCode) and statusMessage = \(statusMessage)")
+//array2 += [10]
 
-let (justTheStatusCode, _) = http404Error
+// MARK: Repeat and combine
 
-print("just the status code = \(statusCode)")
+var threeDoubles = [Double](count: 3, repeatedValue: 0.0)
+print("threeDoubles = \(threeDoubles)")
 
-let http200Status = (statusCode: 200, description: "OK")
+var anotherDoubles = [Double](count: 4, repeatedValue: 2.5)
 
-print("status = \(http200Status.0) and desc = \(http200Status.1)")
-print("status = \(http200Status.statusCode) and desc = \(http200Status.description)")
+threeDoubles += anotherDoubles
+print("threeDoubles = \(threeDoubles)")
